@@ -8,11 +8,16 @@
 
 import Foundation
 import Disk
+import Interstellar
+
+var runReceivedObservable = Observable<Run>()
+
+
 
 class PullRunsFromDisk: BaseObject  {
 
     let queue = DispatchQueue(label: "PullRunsFromDiskQueue", qos: .utility)
-    let path = "Library/Application support/" //runData"
+    let path = "runData"
     //dont store runs here
     
     //pull from disk
@@ -41,33 +46,35 @@ class PullRunsFromDisk: BaseObject  {
         
     }
     
+    
     func scanForRuns () {
         
         //if Disk.exists("runData", in: .applicationSupport ) {
             // ...
             
         //}
+        self.startProcessing()
         
-        let files = try? Disk.retrieve("runData", from: .caches, as: [Data])
+        let files = try? Disk.retrieve(path, from: .caches, as: [Data])
         for i in files! {
             if let j = String(data:i, encoding:.utf8) {
-                print (j);
+                //print (j);
+                let decoder = JSONDecoder()
                 
+                if let run = try! decoder.decode(Run?.self, from: i) {
+                    
+                    //send to mapCombiner , hoodoRunStreamListener
+                    runReceivedObservable.update(run)
+                }
+                //let coords = try! decoder.decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: <#T##Data#>)
+                
+               
             }
             
         }
         
-        let fileManager = FileManager()
+        self.finishProcessing()
         
-        // Get contents in directory: '.' (current one)
-        
-        do {
-            let files = try fileManager.contentsOfDirectory(atPath: path)
-            print(files)
-        }
-        catch let error as NSError {
-            print("Ooops! Something went wrong: \(error)")
-        }
         
     }
 }

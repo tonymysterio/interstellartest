@@ -44,6 +44,7 @@
 		26B597B41FBBBACB00557993 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26B597B11FBBBAB600557993 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26B597B71FBBFC6000557993 /* hoodoRunStreamListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B597B61FBBFC6000557993 /* hoodoRunStreamListener.swift */; };
 		26B597B91FBC154600557993 /* SwiftSimplify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B597B81FBC154600557993 /* SwiftSimplify.swift */; };
+		26B940021FC96EC000441A73 /* MapCombiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B940011FC96EC000441A73 /* MapCombiner.swift */; };
 		26F69FFF1F14AC3800DFD19B /* Worrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F69FFE1F14AC3800DFD19B /* Worrier.swift */; };
 		26F6A0021F16F40600DFD19B /* MotionLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F6A0011F16F40600DFD19B /* MotionLogger.swift */; };
 		26F6A0041F18464B00DFD19B /* LocationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F6A0031F18464B00DFD19B /* LocationLogger.swift */; };
@@ -123,6 +124,7 @@
 		26B597B11FBBBAB600557993 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		26B597B61FBBFC6000557993 /* hoodoRunStreamListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hoodoRunStreamListener.swift; sourceTree = "<group>"; };
 		26B597B81FBC154600557993 /* SwiftSimplify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplify.swift; sourceTree = "<group>"; };
+		26B940011FC96EC000441A73 /* MapCombiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCombiner.swift; sourceTree = "<group>"; };
 		26F69FFE1F14AC3800DFD19B /* Worrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worrier.swift; sourceTree = "<group>"; };
 		26F6A0011F16F40600DFD19B /* MotionLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionLogger.swift; sourceTree = "<group>"; };
 		26F6A0031F18464B00DFD19B /* LocationLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLogger.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		264E21271FB03FD5004CB94E /* schedulerAgents */ = {
 			isa = PBXGroup;
 			children = (
+				26B940001FC96DE800441A73 /* MapCombiner */,
 				2636075A1FBE7031000C423D /* persistentStorage */,
 				26B597B51FBBFC3D00557993 /* runStreamListener */,
 				2687F2FF1FB976810022A40C /* jsonStreamReader */,
@@ -347,6 +350,14 @@
 				263607641FBE9D15000C423D /* liveRunStreamListener.swift */,
 			);
 			path = runStreamListener;
+			sourceTree = "<group>";
+		};
+		26B940001FC96DE800441A73 /* MapCombiner */ = {
+			isa = PBXGroup;
+			children = (
+				26B940011FC96EC000441A73 /* MapCombiner.swift */,
+			);
+			path = MapCombiner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26444F541F0B1D660035519D /* Scheduler.swift in Sources */,
+				26B940021FC96EC000441A73 /* MapCombiner.swift in Sources */,
 				26444F201F09CD300035519D /* ViewController.swift in Sources */,
 				2647D40B1FBAAF76007E83AF /* preferencesSignalJunction.swift in Sources */,
 				263607601FBE93BE000C423D /* HCMatrixObject.swift in Sources */,

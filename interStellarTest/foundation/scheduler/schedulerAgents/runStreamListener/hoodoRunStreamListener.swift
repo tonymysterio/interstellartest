@@ -12,6 +12,9 @@ import UIKit
 
 class hoodoRunStreamListener : BaseObject  {
     
+    //general PLACE to keep our runs? unwise? mapCombiner has its own copy of the same data?
+    
+    
     var processing = false;
     var lastProcessedBuffer = 0;
     var totalPassedBuffers = 0;
@@ -34,8 +37,23 @@ class hoodoRunStreamListener : BaseObject  {
         //disappears
         _pulse(pulseBySeconds: 6000000)
         
+        runReceivedObservable.subscribe
+            { run in
+                self.addRun( run : run )
+                
+        }
+        
+        
         return nil
         
+    }
+    
+    func addRun ( run : Run ) -> DROPcategoryTypes?  {
+        
+        //stuff can come from jsonStreamReader or pullRunsFromDisk
+        
+        
+        return nil
     }
     
     func simplifyRun ( run : Run ) -> [CLLocationCoordinate2D]? {

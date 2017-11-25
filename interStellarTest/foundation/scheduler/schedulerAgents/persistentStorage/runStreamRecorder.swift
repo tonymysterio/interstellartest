@@ -65,7 +65,7 @@ class RunStreamRecorder : BaseObject  {
         
         do {
             let fname = path + "/" + run.hash + ".json"
-            try Disk.save(run, to: .applicationSupport, as: fname)
+            try Disk.save(run, to: .caches, as: fname)
             
             print("storing captured run \(fname) ")
             
@@ -93,7 +93,7 @@ class RunStreamRecorder : BaseObject  {
         
         do {
             let fname = "currentRun/" + run.hash + ".json"
-            try Disk.save(run, to: .applicationSupport, as: fname)
+            try Disk.save(run, to: .caches, as: fname)
             
             self._pulse(pulseBySeconds: 120)
             
