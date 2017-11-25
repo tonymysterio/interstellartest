@@ -1,0 +1,4 @@
+framework module Interstellar {
+    header "Interstellar-Swift.h"
+    requires objc
+}

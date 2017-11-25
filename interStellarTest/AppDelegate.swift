@@ -5,18 +5,48 @@
 //  Created by sami on 2017/07/03.
 //  Copyright © 2017年 pancristal. All rights reserved.
 //
-
 import UIKit
 import CoreData
+import Interstellar
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    //var objects = [ String : BaseObject]();
+    
+    //signals from ui to scheduler
+    var maxObjectsSliderObserver = Observable<Float>()
+    var maxCatObjectsSliderObserver = Observable<Float>()
+    var motionLoggerToggleObserver = Observable<Bool>()
+    var locationLoggerToggleObserver = Observable<Bool>()
+    
+    //c
+    //lazy var messageQueue = MessageQueue(storage: storage)
+    //let scheduler: Scheduler!
+    
+    /*override init() {
+        
+        let messageQueue = MessageQueue(storage: storage );
+        let scheduler = Scheduler( storage: storage ,messageQueue : messageQueue );
+        
+    }*/
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //lazy var messageQueue = MessageQueue(storage: storage)
+        //let messageQueue = MessageQueue(storage: storage );
+        //let scheduler = Scheduler( storage: storage ,messageQueue : messageQueue );
+        
+        //the next ones are intelligently inside GlobalVariables.swift. what could go worng?
+        
+        messageQueue.initHousekeeping()
+        scheduler.initHousekeeping();
+        runRecorder.initialize();
+        runDataIO.initialize();
+        
         return true
     }
 
