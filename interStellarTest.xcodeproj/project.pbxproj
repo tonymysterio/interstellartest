@@ -14,6 +14,8 @@
 		263607631FBE940D000C423D /* runRecorderJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263607621FBE940D000C423D /* runRecorderJunction.swift */; };
 		263607651FBE9D15000C423D /* liveRunStreamListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263607641FBE9D15000C423D /* liveRunStreamListener.swift */; };
 		263607671FBECC90000C423D /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263607661FBECC90000C423D /* Pedometer.swift */; };
+		2642529D1FDFCCB000B74509 /* geos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2642529C1FDFCCB000B74509 /* geos.framework */; };
+		2642529F1FDFCCEF00B74509 /* GEOSwift in Resources */ = {isa = PBXBuildFile; fileRef = 2642529E1FDFCCEF00B74509 /* GEOSwift */; };
 		26444F1E1F09CD300035519D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26444F1D1F09CD300035519D /* AppDelegate.swift */; };
 		26444F201F09CD300035519D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26444F1F1F09CD300035519D /* ViewController.swift */; };
 		26444F231F09CD300035519D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26444F211F09CD300035519D /* Main.storyboard */; };
@@ -31,7 +33,6 @@
 		264E212C1FB43B4B004CB94E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264E212B1FB43B4B004CB94E /* Alamofire.framework */; };
 		264E212D1FB43B6B004CB94E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264E212B1FB43B4B004CB94E /* Alamofire.framework */; };
 		264E212E1FB43B6B004CB94E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 264E212B1FB43B4B004CB94E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		266116AD1FDF702000E78D50 /* GEOSwift in Resources */ = {isa = PBXBuildFile; fileRef = 266116AC1FDF702000E78D50 /* GEOSwift */; };
 		266116AF1FDF7B3A00E78D50 /* mapViewJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266116AE1FDF7B3A00E78D50 /* mapViewJunction.swift */; };
 		26654B081F0B74CC0030B792 /* Timewaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26654B071F0B74CC0030B792 /* Timewaster.swift */; };
 		2667992D1FBED5D10057304E /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2667992C1FBED5D10057304E /* Disk.framework */; };
@@ -91,6 +92,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0EFE4B810D3C3FDF7BE30138 /* Pods-interStellarTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interStellarTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest.release.xcconfig"; sourceTree = "<group>"; };
+		12DFB4B2B26F71426D235151 /* Pods-interStellarTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interStellarTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest.debug.xcconfig"; sourceTree = "<group>"; };
 		2619D9461F146616007AEAD8 /* MessageQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageQueue.swift; sourceTree = "<group>"; };
 		2636075B1FBE707A000C423D /* runStreamRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = runStreamRecorder.swift; sourceTree = "<group>"; };
 		2636075E1FBE93BD000C423D /* HCMatrixObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCMatrixObject.swift; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 		263607621FBE940D000C423D /* runRecorderJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = runRecorderJunction.swift; sourceTree = "<group>"; };
 		263607641FBE9D15000C423D /* liveRunStreamListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liveRunStreamListener.swift; sourceTree = "<group>"; };
 		263607661FBECC90000C423D /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
+		2642529C1FDFCCB000B74509 /* geos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = geos.framework; path = Carthage/Build/iOS/geos.framework; sourceTree = "<group>"; };
+		2642529E1FDFCCEF00B74509 /* GEOSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GEOSwift; sourceTree = "<group>"; };
 		26444F1A1F09CD300035519D /* interStellarTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = interStellarTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26444F1D1F09CD300035519D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26444F1F1F09CD300035519D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +124,6 @@
 		264E212B1FB43B4B004CB94E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		266116AA1FDF6F4300E78D50 /* Geohash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
 		266116AB1FDF6F4400E78D50 /* GeohashBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeohashBox.swift; sourceTree = "<group>"; };
-		266116AC1FDF702000E78D50 /* GEOSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GEOSwift; path = "../../../../Downloads/GEOSwift-master/GEOSwift"; sourceTree = "<group>"; };
 		266116AE1FDF7B3A00E78D50 /* mapViewJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewJunction.swift; sourceTree = "<group>"; };
 		26654B071F0B74CC0030B792 /* Timewaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timewaster.swift; sourceTree = "<group>"; };
 		2667992C1FBED5D10057304E /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			files = (
 				264E21201FB03EE8004CB94E /* Interstellar.framework in Frameworks */,
 				264E212C1FB43B4B004CB94E /* Alamofire.framework in Frameworks */,
+				2642529D1FDFCCB000B74509 /* geos.framework in Frameworks */,
 				26B597B31FBBBACB00557993 /* SwiftyJSON.framework in Frameworks */,
 				264E21211FB03F16004CB94E /* Interstellar.framework in Frameworks */,
 				264E212D1FB43B6B004CB94E /* Alamofire.framework in Frameworks */,
@@ -199,6 +204,7 @@
 				26444F3F1F09CD300035519D /* interStellarTestUITests */,
 				26444F1B1F09CD300035519D /* Products */,
 				26444F4E1F09CF630035519D /* Frameworks */,
+				ABEBA24F7D1642F6BD3B8BB6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +221,7 @@
 		26444F1C1F09CD300035519D /* interStellarTest */ = {
 			isa = PBXGroup;
 			children = (
+				2642529E1FDFCCEF00B74509 /* GEOSwift */,
 				26444F1D1F09CD300035519D /* AppDelegate.swift */,
 				264FF69E1FDE55A900019CA0 /* dependencies */,
 				269248231FC94CD200F3E247 /* appStartup */,
@@ -256,6 +263,7 @@
 				26B597B11FBBBAB600557993 /* SwiftyJSON.framework */,
 				264E212B1FB43B4B004CB94E /* Alamofire.framework */,
 				264E211F1FB03EE8004CB94E /* Interstellar.framework */,
+				2642529C1FDFCCB000B74509 /* geos.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -326,7 +334,6 @@
 		264FF69E1FDE55A900019CA0 /* dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				266116AC1FDF702000E78D50 /* GEOSwift */,
 				266116A91FDF6F3900E78D50 /* geoHash */,
 				26AC3BD91FB5425D00540BB9 /* runStruct.swift */,
 			);
@@ -386,6 +393,15 @@
 			path = MapCombiner;
 			sourceTree = "<group>";
 		};
+		ABEBA24F7D1642F6BD3B8BB6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				12DFB4B2B26F71426D235151 /* Pods-interStellarTest.debug.xcconfig */,
+				0EFE4B810D3C3FDF7BE30138 /* Pods-interStellarTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -393,10 +409,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26444F451F09CD300035519D /* Build configuration list for PBXNativeTarget "interStellarTest" */;
 			buildPhases = (
+				99BF0C0BA83CA96B2992FDE0 /* [CP] Check Pods Manifest.lock */,
 				26444F161F09CD300035519D /* Sources */,
 				26444F171F09CD300035519D /* Frameworks */,
 				26444F181F09CD300035519D /* Resources */,
 				26444F591F0B3A6D0035519D /* Embed Frameworks */,
+				CBD4E8258B13D2A94214CB09 /* [CP] Embed Pods Frameworks */,
+				AC491777E61D3A9F2CC053EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -502,7 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				266116AD1FDF702000E78D50 /* GEOSwift in Resources */,
+				2642529F1FDFCCEF00B74509 /* GEOSwift in Resources */,
 				26444F2B1F09CD300035519D /* LaunchScreen.storyboard in Resources */,
 				26444F281F09CD300035519D /* Assets.xcassets in Resources */,
 				26444F231F09CD300035519D /* Main.storyboard in Resources */,
@@ -524,6 +543,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		99BF0C0BA83CA96B2992FDE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-interStellarTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC491777E61D3A9F2CC053EA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBD4E8258B13D2A94214CB09 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GEOSwift/GEOSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/geos/geos.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GEOSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/geos.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		26444F161F09CD300035519D /* Sources */ = {
@@ -710,6 +785,7 @@
 		};
 		26444F461F09CD300035519D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12DFB4B2B26F71426D235151 /* Pods-interStellarTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -719,6 +795,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = interStellarTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pancristal.interStellarTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -729,6 +806,7 @@
 		};
 		26444F471F09CD300035519D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EFE4B810D3C3FDF7BE30138 /* Pods-interStellarTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -738,6 +816,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = interStellarTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pancristal.interStellarTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

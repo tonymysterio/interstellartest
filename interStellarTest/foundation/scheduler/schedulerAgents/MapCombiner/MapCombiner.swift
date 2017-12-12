@@ -118,9 +118,9 @@ class MapCombiner : BaseObject  {
         
         switch (self.filteringMode) {
             
-        case: .world
+        case (.world):
             self.createSnapshotFromRunsForWorld ()
-        case: .personal
+        case (.personal):
             self.createSnapshotFromRunsForPersonal ()
             
         default: self.createSnapshotFromRunsForLocalCompetition ()
