@@ -31,6 +31,8 @@
 		264E212C1FB43B4B004CB94E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264E212B1FB43B4B004CB94E /* Alamofire.framework */; };
 		264E212D1FB43B6B004CB94E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264E212B1FB43B4B004CB94E /* Alamofire.framework */; };
 		264E212E1FB43B6B004CB94E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 264E212B1FB43B4B004CB94E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		266116AD1FDF702000E78D50 /* GEOSwift in Resources */ = {isa = PBXBuildFile; fileRef = 266116AC1FDF702000E78D50 /* GEOSwift */; };
+		266116AF1FDF7B3A00E78D50 /* mapViewJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266116AE1FDF7B3A00E78D50 /* mapViewJunction.swift */; };
 		26654B081F0B74CC0030B792 /* Timewaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26654B071F0B74CC0030B792 /* Timewaster.swift */; };
 		2667992D1FBED5D10057304E /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2667992C1FBED5D10057304E /* Disk.framework */; };
 		2667992E1FBED6060057304E /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2667992C1FBED5D10057304E /* Disk.framework */; };
@@ -115,6 +117,10 @@
 		2647D40A1FBAAF76007E83AF /* preferencesSignalJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = preferencesSignalJunction.swift; sourceTree = "<group>"; };
 		264E211F1FB03EE8004CB94E /* Interstellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Interstellar.framework; path = Carthage/Build/iOS/Interstellar.framework; sourceTree = "<group>"; };
 		264E212B1FB43B4B004CB94E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		266116AA1FDF6F4300E78D50 /* Geohash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
+		266116AB1FDF6F4400E78D50 /* GeohashBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeohashBox.swift; sourceTree = "<group>"; };
+		266116AC1FDF702000E78D50 /* GEOSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GEOSwift; path = "../../../../Downloads/GEOSwift-master/GEOSwift"; sourceTree = "<group>"; };
+		266116AE1FDF7B3A00E78D50 /* mapViewJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewJunction.swift; sourceTree = "<group>"; };
 		26654B071F0B74CC0030B792 /* Timewaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timewaster.swift; sourceTree = "<group>"; };
 		2667992C1FBED5D10057304E /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		266799311FC929C10057304E /* runDataIOJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = runDataIOJunction.swift; sourceTree = "<group>"; };
@@ -209,9 +215,10 @@
 		26444F1C1F09CD300035519D /* interStellarTest */ = {
 			isa = PBXGroup;
 			children = (
+				26444F1D1F09CD300035519D /* AppDelegate.swift */,
+				264FF69E1FDE55A900019CA0 /* dependencies */,
 				269248231FC94CD200F3E247 /* appStartup */,
 				266799301FC90A3D0057304E /* junctions */,
-				26444F1D1F09CD300035519D /* AppDelegate.swift */,
 				264E21281FB04006004CB94E /* foundation */,
 				26444F1F1F09CD300035519D /* ViewController.swift */,
 				26444F211F09CD300035519D /* Main.storyboard */,
@@ -316,10 +323,30 @@
 			path = foundation;
 			sourceTree = "<group>";
 		};
+		264FF69E1FDE55A900019CA0 /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				266116AC1FDF702000E78D50 /* GEOSwift */,
+				266116A91FDF6F3900E78D50 /* geoHash */,
+				26AC3BD91FB5425D00540BB9 /* runStruct.swift */,
+			);
+			path = dependencies;
+			sourceTree = "<group>";
+		};
+		266116A91FDF6F3900E78D50 /* geoHash */ = {
+			isa = PBXGroup;
+			children = (
+				266116AA1FDF6F4300E78D50 /* Geohash.swift */,
+				266116AB1FDF6F4400E78D50 /* GeohashBox.swift */,
+			);
+			path = geoHash;
+			sourceTree = "<group>";
+		};
 		266799301FC90A3D0057304E /* junctions */ = {
 			isa = PBXGroup;
 			children = (
 				263607621FBE940D000C423D /* runRecorderJunction.swift */,
+				266116AE1FDF7B3A00E78D50 /* mapViewJunction.swift */,
 				266799311FC929C10057304E /* runDataIOJunction.swift */,
 				2647D40A1FBAAF76007E83AF /* preferencesSignalJunction.swift */,
 			);
@@ -329,7 +356,6 @@
 		2687F2FF1FB976810022A40C /* jsonStreamReader */ = {
 			isa = PBXGroup;
 			children = (
-				26AC3BD91FB5425D00540BB9 /* runStruct.swift */,
 				2687F3001FB976B50022A40C /* jsonStreamReader.swift */,
 			);
 			path = jsonStreamReader;
@@ -476,6 +502,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				266116AD1FDF702000E78D50 /* GEOSwift in Resources */,
 				26444F2B1F09CD300035519D /* LaunchScreen.storyboard in Resources */,
 				26444F281F09CD300035519D /* Assets.xcassets in Resources */,
 				26444F231F09CD300035519D /* Main.storyboard in Resources */,
@@ -527,6 +554,7 @@
 				263607611FBE93BE000C423D /* HCKalmanAlgorithm.swift in Sources */,
 				2619D9471F146616007AEAD8 /* MessageQueue.swift in Sources */,
 				26444F521F09D1700035519D /* BaseObject.swift in Sources */,
+				266116AF1FDF7B3A00E78D50 /* mapViewJunction.swift in Sources */,
 				26F6A00C1F25EE7600DFD19B /* GlobalVariables.swift in Sources */,
 				26F6A0021F16F40600DFD19B /* MotionLogger.swift in Sources */,
 				2687F3011FB976B50022A40C /* jsonStreamReader.swift in Sources */,

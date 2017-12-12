@@ -10,18 +10,15 @@ import Foundation
 import SwiftyJSON
 import CoreLocation
 
-struct coordinate : Codable {
+enum mapFilteringMode {
     
-    let timestamp : Double
-    /*let plugged : Int
-    let level : Int
-    let error : Int*/
-    let lat : CLLocationDegrees
-    let lon : CLLocationDegrees
-    //let temperature : Int
-    
+    case personal   //my personals combined
+    case world  //everything that comes in combined
+    case localCompetition   //group by clan
     
 }
+
+
 
 struct Runs {
     
@@ -91,10 +88,10 @@ struct Runs {
         return no
     }
     
-    func appendMany ( runs : [Run]) {
+    mutating func appendMany ( runs : [Run]) {
         
-        for f in runs {
-            
+        for run in runs {
+            _ = self.append(run : run)
         }
         
     }
@@ -145,6 +142,18 @@ extension Run : Comparable {
     
 }
 
+struct coordinate : Codable {
+    
+    let timestamp : Double
+    /*let plugged : Int
+     let level : Int
+     let error : Int*/
+    let lat : CLLocationDegrees
+    let lon : CLLocationDegrees
+    //let temperature : Int
+    
+    
+}
 
 struct Run : Codable {
     
