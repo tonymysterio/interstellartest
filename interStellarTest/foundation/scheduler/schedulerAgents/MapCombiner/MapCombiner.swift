@@ -86,6 +86,10 @@ class MapCombiner : BaseObject  {
     
     func createSnapshot () {
         
+        let point = Waypoint(WKT: "POINT(10 45)")
+        let polygon = Geometry.create("POLYGON((35 10, 45 45.5, 15 40, 10 20, 35 10),(20 30, 35 35, 30 20, 20 30))")
+
+        
         if self.isProcessing { return }
         //ignore further additions
         self.startProcessing()
