@@ -116,6 +116,7 @@ struct Runs {
             let location1 = CLLocation(latitude: (f.coordinates.first?.lat)!, longitude: (f.coordinates.first?.lon)!)
             
             let d = location1.distance(from: location2)
+            if d == 0 { continue }
             if d < distanceInMeters {
                 
                 withinRange.append(run: f)

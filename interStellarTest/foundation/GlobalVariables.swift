@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Interstellar
-
+import MapKit
 
 let storage = MainStorageForObjects()
 let messageQueue = MessageQueue(storage: storage)

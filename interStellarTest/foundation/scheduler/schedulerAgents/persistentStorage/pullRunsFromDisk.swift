@@ -69,6 +69,7 @@ class PullRunsFromDisk: BaseObject  {
                 if let run = try! decoder.decode(Run?.self, from: i) {
                     
                     //send to mapCombiner , hoodoRunStreamListener
+                    //print (run)
                     runReceivedObservable.update(run)
                     self._pulse(pulseBySeconds: 2)
                 }

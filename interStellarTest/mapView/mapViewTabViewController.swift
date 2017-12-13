@@ -61,7 +61,9 @@ class mapViewTabViewController: UIViewController {
             
             //got a snapshot from mapCombiner
             self.mapSnapshotReceived( mapSnap : mapSnap )
-         
+            
+            
+            
          }
         
         
@@ -92,6 +94,7 @@ class mapViewTabViewController: UIViewController {
                 myAnnotation.coordinate = CLLocationCoordinate2DMake(lc.coordinate.latitude, lc.coordinate.longitude);
                 myAnnotation.title = "Current location"
                 self.mapView.addAnnotation(myAnnotation)
+                self.mapView?.showsUserLocation = true
                 
             }
         
@@ -122,10 +125,77 @@ class mapViewTabViewController: UIViewController {
          */
         
         // track if it is what we want to see now
+        let center = CLLocationCoordinate2D(latitude: mapSnap.lat, longitude: mapSnap.lon)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         
+        for i in mapSnap.o {
+            self.mapView.add(i) //polyline
+            
+        }
+        
+        self.mapView.setRegion(region, animated: true)
+        self.mapView.setCenter(center, animated: true)
         
         
     }
     
+    /*func addPolyline() {
+        var locations = places.map { $0.coordinate }
+        let polyline = MKPolyline(coordinates: &locations, count: locations.count)
+        
+        mapView?.add(polyline)
+    }*/
+    
+    
+}
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+            
+        else {
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
+            annotationView.image = UIImage(named: "place icon")
+            annotationView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView.canShowCallout = true
+            return annotationView
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKCircle {
+            let renderer = MKCircleRenderer(overlay: overlay)
+            renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
+            renderer.strokeColor = UIColor.blue
+            renderer.lineWidth = 2
+            return renderer
+            
+        } else if overlay is MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.orange
+            renderer.lineWidth = 3
+            return renderer
+            
+        } else if overlay is MKPolygon {
+            let renderer = MKPolygonRenderer(polygon: overlay as! MKPolygon)
+            renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
+            renderer.strokeColor = UIColor.orange
+            renderer.lineWidth = 2
+            return renderer
+        }
+        
+        return MKOverlayRenderer()
+    }
+    
+    /*func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? Place, let title = annotation.title else { return }
+        
+        let alertController = UIAlertController(title: "Welcome to \(title)", message: "You've selected \(title)", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }*/
 }

@@ -114,7 +114,7 @@ class MapCombiner : BaseObject  {
             if let currentRuns = strongSelf.runs.getWithinArea(lat: strongSelf.Lat,lon: strongSelf.Lon,distanceInMeters: strongSelf.getWithinArea) {
                 
                 //pushes the snap output thru an observer if one gets produced
-                strongSelf.createSnapshotFromRuns(runs: currentRuns , )
+                strongSelf.createSnapshotFromRuns(runs: currentRuns , lat: strongSelf.Lat,lon: strongSelf.Lon, getWithinArea: strongSelf.getWithinArea )
                 
             } else {
                 
@@ -129,7 +129,7 @@ class MapCombiner : BaseObject  {
         
     }   //end create snacreateSnapshot
     
-    func createSnapshotFromRuns ( runs : Runs , lat: CLLocationDegrees , lon: CLLocationDegrees  getWithinArea : Double ) {
+    func createSnapshotFromRuns ( runs : Runs , lat: CLLocationDegrees , lon: CLLocationDegrees , getWithinArea : Double ) {
         
         
         
@@ -145,7 +145,7 @@ class MapCombiner : BaseObject  {
         
     }
     
-    func createSnapshotFromRunsForWorld ( runs : Runs , lat: CLLocationDegrees , lon: CLLocationDegrees  getWithinArea : Double ) {
+    func createSnapshotFromRunsForWorld ( runs : Runs , lat: CLLocationDegrees , lon: CLLocationDegrees , getWithinArea : Double ) {
         //its all there, put it into a stack
         
         
@@ -153,7 +153,7 @@ class MapCombiner : BaseObject  {
         
         
         let r = runs.allSorted()
-        var mapPolylineSet = [MKPolyline]
+        var mapPolylineSet = [MKPolyline]()
         //older areas on the background
         for i in r!.o {
             
@@ -165,14 +165,15 @@ class MapCombiner : BaseObject  {
         }
         
         //do this in background queue
-        let newSnap = mapSnapshot( o : mapPolylineSet , filteringMode : filteringMode.world , lat : 0 , lon: 0 , getWithinArea : getWithinArea )
+        let newSnap = mapSnapshot( o : mapPolylineSet , filteringMode : self.filteringMode , lat : lat , lon: lon , getWithinArea : getWithinArea )
         
-        let o : [MKPolyline]
+        /*let o : [MKPolyline]
         let filteringMode : mapFilteringMode //throw everything in as default
         let lat : CLLocationDegrees
         let lon : CLLocationDegrees
-        let getWithinArea : Double
+        let getWithinArea : Double */
         
+        mapSnapshotObserver.update(newSnap) //mapView is listening
     }
     
     func createSnapshotFromRunsForPersonal ( runs : Runs ) {

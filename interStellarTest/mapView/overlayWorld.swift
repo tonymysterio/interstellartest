@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-
+/*
 class WorldMapOverlay: NSObject, MKOverlay {
     
     var coordinate: CLLocationCoordinate2D
@@ -19,4 +19,4 @@ class WorldMapOverlay: NSObject, MKOverlay {
         coordinate = park.midCoordinate
     }
 }
-
+*/
