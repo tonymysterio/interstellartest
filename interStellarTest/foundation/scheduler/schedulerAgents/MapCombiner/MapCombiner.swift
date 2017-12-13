@@ -8,7 +8,7 @@
 
 import Foundation
 import Interstellar
-import GEOSwift
+//import GEOSwift
 import MapKit
 
 class MapCombiner : BaseObject  {
@@ -21,10 +21,10 @@ class MapCombiner : BaseObject  {
     var lastInsertTimestamp = Date().timeIntervalSince1970
     let combineAfterIntervalSecons = 1
     var filteringMode = mapFilteringMode.world  //throw everything in as default
-    var initialLocation : locationMessage
+    var initialLocation = locationMessage( timestamp : 0 , lat : 65.822299, lon: 24.2002689 )
     var Lat : CLLocationDegrees = 65.822299
     var Lon : CLLocationDegrees = 24.2002689
-    var zoomLevelInMeters = 5000;
+    var getWithinArea : Double = 5000; //zoomLevelInMeters
     let user = "samui@hastur.org"
     
     //pull from disk
@@ -47,8 +47,8 @@ class MapCombiner : BaseObject  {
     func _initialize () -> DROPcategoryTypes? {
         
         myCategory = objectCategoryTypes.uniqueServiceProvider  //only one file accessor at a time
-        self.name = "MapCombiner"
-        self.myID = "MapCombiner"
+        self.name = "mapCombiner"
+        self.myID = "mapCombiner"
         self.myCategory = objectCategoryTypes.uniqueServiceProvider
         
         //disappears
@@ -71,6 +71,13 @@ class MapCombiner : BaseObject  {
         
     }
     
+    override func _housekeep_extend() -> DROPcategoryTypes? {
+    
+        self._pulse(pulseBySeconds: 60);    //stay alive
+        
+        return nil
+    }
+    
     func addRun ( run : Run ) {
         
         self.runQueue.sync { [weak self] in
@@ -84,13 +91,16 @@ class MapCombiner : BaseObject  {
         }
     }   //end addRun
     
-    func createSnapshot () {
+    func createSnapshot () -> DROPcategoryTypes? {
         
-        let point = Waypoint(WKT: "POINT(10 45)")
-        let polygon = Geometry.create("POLYGON((35 10, 45 45.5, 15 40, 10 20, 35 10),(20 30, 35 35, 30 20, 20 30))")
-
+        //let point = Waypoint(WKT: "POINT(10 45)")
+        //let polygon = Geometry.create("POLYGON((35 10, 45 45.5, 15 40, 10 20, 35 10),(20 30, 35 35, 30 20, 20 30))")
+        let currentRunsCount = self.runs.o.count
+        print ("createSnapshot called with \(currentRunsCount)")
         
-        if self.isProcessing { return }
+        if self.isProcessing { return DROPcategoryTypes.busyProcessesing }
+        
+        if  currentRunsCount == 0 { return DROPcategoryTypes.serviceNotReady }
         //ignore further additions
         self.startProcessing()
         //data might appear after this,just copy the existing items and pass to createSnapshots
@@ -101,54 +111,72 @@ class MapCombiner : BaseObject  {
                 return
             }
             
-            if let currentRuns = strongSelf.runs.getWithinArea(self.Lat,self.Lon,self.getWithinArea) {
+            if let currentRuns = strongSelf.runs.getWithinArea(lat: strongSelf.Lat,lon: strongSelf.Lon,distanceInMeters: strongSelf.getWithinArea) {
                 
                 //pushes the snap output thru an observer if one gets produced
-                strongSelf.createSnapshotFromRuns(runs: currentRuns)
+                strongSelf.createSnapshotFromRuns(runs: currentRuns , )
                 
             } else {
                 
                 //no data with current location. let this guy TTL unless we get some data
-                self.finishProcessing()
+                self?.finishProcessing()
+                
             }
             
         }
         
+        return nil
+        
     }   //end create snacreateSnapshot
     
-    func createSnapshotFromRuns ( runs : Runs ) {
+    func createSnapshotFromRuns ( runs : Runs , lat: CLLocationDegrees , lon: CLLocationDegrees  getWithinArea : Double ) {
         
         
         
         switch (self.filteringMode) {
             
         case (.world):
-            self.createSnapshotFromRunsForWorld ()
+            self.createSnapshotFromRunsForWorld ( runs: runs , lat : lat, lon : lon , getWithinArea : getWithinArea )
         case (.personal):
-            self.createSnapshotFromRunsForPersonal ()
+            self.createSnapshotFromRunsForPersonal ( runs: runs )
             
-        default: self.createSnapshotFromRunsForLocalCompetition ()
+        default: self.createSnapshotFromRunsForLocalCompetition ( runs: runs )
         }
         
     }
     
-    func createSnapshotFromRunsForWorld ( runs : Runs ) {
+    func createSnapshotFromRunsForWorld ( runs : Runs , lat: CLLocationDegrees , lon: CLLocationDegrees  getWithinArea : Double ) {
         //its all there, put it into a stack
+        
+        
+        print ("createSnapshotFromRunsForWorld called with distance filtered \(runs.o.count)")
+        
+        
         let r = runs.allSorted()
-        
-        
-        for i in r {
+        var mapPolylineSet = [MKPolyline]
+        //older areas on the background
+        for i in r!.o {
             
-            
+            //let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+            let coords = i.coordinates.map { CLLocationCoordinate2DMake($0.lat, $0.lon) }
+            let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+            mapPolylineSet.append(myPolyline)
             
         }
-        //do this in background queue
         
+        //do this in background queue
+        let newSnap = mapSnapshot( o : mapPolylineSet , filteringMode : filteringMode.world , lat : 0 , lon: 0 , getWithinArea : getWithinArea )
+        
+        let o : [MKPolyline]
+        let filteringMode : mapFilteringMode //throw everything in as default
+        let lat : CLLocationDegrees
+        let lon : CLLocationDegrees
+        let getWithinArea : Double
         
     }
     
     func createSnapshotFromRunsForPersonal ( runs : Runs ) {
-        guard let personalRuns = runs.readByUser(self.user) else {
+        guard let personalRuns = runs.readByUser(user: self.user) else {
             //notify about no personal runs?
             
             self.finishProcessing()

@@ -39,6 +39,11 @@
 		2667992E1FBED6060057304E /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2667992C1FBED5D10057304E /* Disk.framework */; };
 		2667992F1FBED6060057304E /* Disk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2667992C1FBED5D10057304E /* Disk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		266799321FC929C10057304E /* runDataIOJunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266799311FC929C10057304E /* runDataIOJunction.swift */; };
+		266D56371FE0C89700D5BC65 /* geos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2642529C1FDFCCB000B74509 /* geos.framework */; };
+		266D56381FE0C89700D5BC65 /* geos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2642529C1FDFCCB000B74509 /* geos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		266D56391FE0C8F100D5BC65 /* geos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2642529C1FDFCCB000B74509 /* geos.framework */; };
+		266D563A1FE0C8F100D5BC65 /* geos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2642529C1FDFCCB000B74509 /* geos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		266D563D1FE101FD00D5BC65 /* overlayWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D563C1FE101FD00D5BC65 /* overlayWorld.swift */; };
 		2687F3011FB976B50022A40C /* jsonStreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687F3001FB976B50022A40C /* jsonStreamReader.swift */; };
 		269248251FC94D2E00F3E247 /* pullRunsFromDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269248241FC94D2E00F3E247 /* pullRunsFromDisk.swift */; };
 		26AC3BDA1FB5425D00540BB9 /* runStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC3BD91FB5425D00540BB9 /* runStruct.swift */; };
@@ -55,7 +60,6 @@
 		26F6A0081F1DB49800DFD19B /* MotionTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F6A0071F1DB49800DFD19B /* MotionTracker.swift */; };
 		26F6A00A1F25E88600DFD19B /* mapViewTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F6A0091F25E88600DFD19B /* mapViewTabViewController.swift */; };
 		26F6A00C1F25EE7600DFD19B /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F6A00B1F25EE7600DFD19B /* GlobalVariables.swift */; };
-		3CEAE43EDE069F4C3050BD79 /* Pods_interStellarTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C355DF86CC7253FF7DACAECA /* Pods_interStellarTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,8 @@
 			files = (
 				264E21221FB03F16004CB94E /* Interstellar.framework in Embed Frameworks */,
 				2667992F1FBED6060057304E /* Disk.framework in Embed Frameworks */,
+				266D563A1FE0C8F100D5BC65 /* geos.framework in Embed Frameworks */,
+				266D56381FE0C89700D5BC65 /* geos.framework in Embed Frameworks */,
 				264E212E1FB43B6B004CB94E /* Alamofire.framework in Embed Frameworks */,
 				26B597B41FBBBACB00557993 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
@@ -127,6 +133,7 @@
 		26654B071F0B74CC0030B792 /* Timewaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timewaster.swift; sourceTree = "<group>"; };
 		2667992C1FBED5D10057304E /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		266799311FC929C10057304E /* runDataIOJunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = runDataIOJunction.swift; sourceTree = "<group>"; };
+		266D563C1FE101FD00D5BC65 /* overlayWorld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = overlayWorld.swift; sourceTree = "<group>"; };
 		2687F3001FB976B50022A40C /* jsonStreamReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonStreamReader.swift; sourceTree = "<group>"; };
 		269248241FC94D2E00F3E247 /* pullRunsFromDisk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pullRunsFromDisk.swift; sourceTree = "<group>"; };
 		26AC3BD91FB5425D00540BB9 /* runStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = runStruct.swift; sourceTree = "<group>"; };
@@ -141,9 +148,6 @@
 		26F6A0071F1DB49800DFD19B /* MotionTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionTracker.swift; sourceTree = "<group>"; };
 		26F6A0091F25E88600DFD19B /* mapViewTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewTabViewController.swift; sourceTree = "<group>"; };
 		26F6A00B1F25EE7600DFD19B /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
-		8204D257D38A6D309E5A8C4A /* Pods-interStellarTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interStellarTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest.release.xcconfig"; sourceTree = "<group>"; };
-		C355DF86CC7253FF7DACAECA /* Pods_interStellarTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_interStellarTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E908699C300442C2AE9503F3 /* Pods-interStellarTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interStellarTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +155,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				266D56391FE0C8F100D5BC65 /* geos.framework in Frameworks */,
 				264E21201FB03EE8004CB94E /* Interstellar.framework in Frameworks */,
 				264E212C1FB43B4B004CB94E /* Alamofire.framework in Frameworks */,
+				266D56371FE0C89700D5BC65 /* geos.framework in Frameworks */,
 				2642529D1FDFCCB000B74509 /* geos.framework in Frameworks */,
 				26B597B31FBBBACB00557993 /* SwiftyJSON.framework in Frameworks */,
 				264E21211FB03F16004CB94E /* Interstellar.framework in Frameworks */,
@@ -160,7 +166,6 @@
 				2667992E1FBED6060057304E /* Disk.framework in Frameworks */,
 				26B597B21FBBBAB600557993 /* SwiftyJSON.framework in Frameworks */,
 				2667992D1FBED5D10057304E /* Disk.framework in Frameworks */,
-				3CEAE43EDE069F4C3050BD79 /* Pods_interStellarTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +212,6 @@
 				26444F3F1F09CD300035519D /* interStellarTestUITests */,
 				26444F1B1F09CD300035519D /* Products */,
 				26444F4E1F09CF630035519D /* Frameworks */,
-				BD2508E09AE81BC2C89F61DE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -232,7 +236,7 @@
 				264E21281FB04006004CB94E /* foundation */,
 				26444F1F1F09CD300035519D /* ViewController.swift */,
 				26444F211F09CD300035519D /* Main.storyboard */,
-				26F6A0091F25E88600DFD19B /* mapViewTabViewController.swift */,
+				266D563B1FE101BD00D5BC65 /* mapView */,
 				26444F271F09CD300035519D /* Assets.xcassets */,
 				26444F291F09CD300035519D /* LaunchScreen.storyboard */,
 				26444F2C1F09CD300035519D /* Info.plist */,
@@ -267,7 +271,6 @@
 				264E212B1FB43B4B004CB94E /* Alamofire.framework */,
 				264E211F1FB03EE8004CB94E /* Interstellar.framework */,
 				2642529C1FDFCCB000B74509 /* geos.framework */,
-				C355DF86CC7253FF7DACAECA /* Pods_interStellarTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -364,6 +367,15 @@
 			path = junctions;
 			sourceTree = "<group>";
 		};
+		266D563B1FE101BD00D5BC65 /* mapView */ = {
+			isa = PBXGroup;
+			children = (
+				26F6A0091F25E88600DFD19B /* mapViewTabViewController.swift */,
+				266D563C1FE101FD00D5BC65 /* overlayWorld.swift */,
+			);
+			path = mapView;
+			sourceTree = "<group>";
+		};
 		2687F2FF1FB976810022A40C /* jsonStreamReader */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,15 +409,6 @@
 			path = MapCombiner;
 			sourceTree = "<group>";
 		};
-		BD2508E09AE81BC2C89F61DE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E908699C300442C2AE9503F3 /* Pods-interStellarTest.debug.xcconfig */,
-				8204D257D38A6D309E5A8C4A /* Pods-interStellarTest.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,13 +416,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26444F451F09CD300035519D /* Build configuration list for PBXNativeTarget "interStellarTest" */;
 			buildPhases = (
-				99BF0C0BA83CA96B2992FDE0 /* [CP] Check Pods Manifest.lock */,
 				26444F161F09CD300035519D /* Sources */,
 				26444F171F09CD300035519D /* Frameworks */,
 				26444F181F09CD300035519D /* Resources */,
 				26444F591F0B3A6D0035519D /* Embed Frameworks */,
-				CBD4E8258B13D2A94214CB09 /* [CP] Embed Pods Frameworks */,
-				AC491777E61D3A9F2CC053EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -548,62 +548,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		99BF0C0BA83CA96B2992FDE0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-interStellarTest-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AC491777E61D3A9F2CC053EA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CBD4E8258B13D2A94214CB09 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GEOSwift/GEOSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/geos/geos.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GEOSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/geos.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-interStellarTest/Pods-interStellarTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		26444F161F09CD300035519D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -634,6 +578,7 @@
 				2619D9471F146616007AEAD8 /* MessageQueue.swift in Sources */,
 				26444F521F09D1700035519D /* BaseObject.swift in Sources */,
 				266116AF1FDF7B3A00E78D50 /* mapViewJunction.swift in Sources */,
+				266D563D1FE101FD00D5BC65 /* overlayWorld.swift in Sources */,
 				26F6A00C1F25EE7600DFD19B /* GlobalVariables.swift in Sources */,
 				26F6A0021F16F40600DFD19B /* MotionLogger.swift in Sources */,
 				2687F3011FB976B50022A40C /* jsonStreamReader.swift in Sources */,
@@ -789,7 +734,6 @@
 		};
 		26444F461F09CD300035519D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E908699C300442C2AE9503F3 /* Pods-interStellarTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -810,7 +754,6 @@
 		};
 		26444F471F09CD300035519D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8204D257D38A6D309E5A8C4A /* Pods-interStellarTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

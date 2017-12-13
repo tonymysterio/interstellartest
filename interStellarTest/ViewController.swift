@@ -132,6 +132,15 @@ class ViewController: UIViewController {
         scheduler.addObject(oID: worryAunt.myID, o: worryAunt)
         scheduler.worryAuntID = worryAunt.myID;
         
+        var mapCombiner = MapCombiner( messageQueue : nil );
+        mapCombiner.myID = "mapCombiner";
+        mapCombiner.name = "mapCombiner";
+        mapCombiner.myCategory = objectCategoryTypes.debugger
+        mapCombiner._pulse(pulseBySeconds: 600);
+        mapCombiner._initialize()
+        scheduler.addObject(oID: mapCombiner.myID, o: mapCombiner)
+        //scheduler.worryAuntID = worryAunt.myID;
+        
         
         let mtra = MotionTracker( messageQueue : messageQueue );
         mtra.myCategory=objectCategoryTypes.motionlistener

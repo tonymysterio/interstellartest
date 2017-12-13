@@ -19,6 +19,7 @@ var locationMessageObserver = Observable<locationMessage>()*/
 
 var mapFilteringModeToggleObserver = Observable<mapFilteringMode>()
 var currentLocationMessageObserver = Observable<locationMessage>()
+var mapSnapshotObserver = Observable<mapSnapshot>()
 
 class mapViewJunction {
     
@@ -31,10 +32,11 @@ class mapViewJunction {
     init () {
         
         
-        mapFilteringModeToggleObserver.subscribe { run in
+        mapFilteringModeToggleObserver.subscribe { filteringMode in
             
             //tell MapCombiner to change mode
             //self.recordCompleted(run : run)
+            self.mapFilteringModeToggle(filteringMode : filteringMode)
             
         }
         
@@ -45,7 +47,7 @@ class mapViewJunction {
             
         }*/
         
-        runAreaCompletedObserver.subscribe { run in
+        /*runAreaCompletedObserver.subscribe { run in
             self.recordCompleted(run : run)
             
         }
@@ -59,8 +61,9 @@ class mapViewJunction {
         runAreaProgressObserver.subscribe { run in
             self.runAreaProgress( run : run )
             
-        }
+        }*/
         
+    }
         
     func initialize () {
         
@@ -68,15 +71,16 @@ class mapViewJunction {
         
     }
     
-    func mapFilteringModeToggle ( filtermode : mapFilteringMode ) {
+    func mapFilteringModeToggle ( filteringMode : mapFilteringMode ) {
         
             //user wants to see different data on his map
             if let mlt = storage.getObject(oID: "MapCombiner") as! MapCombiner? {
             
-                mlt.changeFilteringMode (filtermode : filtermode )
+                mlt.changeFilteringMode (filteringMode : filteringMode )
             
         }
-        
+     
+    
     
         
     }

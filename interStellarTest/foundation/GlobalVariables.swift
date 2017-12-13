@@ -123,6 +123,15 @@ enum DROPcategoryTypes {
 
 //wrap in class to pass it as a pointer
 
+struct mapSnapshot {
+    
+    let o : [MKPolyline]
+    let filteringMode : mapFilteringMode //throw everything in as default
+    let lat : CLLocationDegrees
+    let lon : CLLocationDegrees
+    let getWithinArea : Double
+}
+
 class MainStorageForObjects {
     
     var queue = DispatchQueue(label: "MainStorageForObjectsQueue")

@@ -55,16 +55,22 @@ class PullRunsFromDisk: BaseObject  {
         //}
         self.startProcessing()
         
-        let files = try? Disk.retrieve(path, from: .caches, as: [Data])
-        for i in files! {
+        guard let files = try? Disk.retrieve(path, from: .caches, as: [Data]) else  {
+            //no files found
+            self.finishProcessing()
+            return
+        }
+        
+        for i in files {
             if let j = String(data:i, encoding:.utf8) {
-                //print (j);
+                print (j);
                 let decoder = JSONDecoder()
                 
                 if let run = try! decoder.decode(Run?.self, from: i) {
                     
                     //send to mapCombiner , hoodoRunStreamListener
                     runReceivedObservable.update(run)
+                    self._pulse(pulseBySeconds: 2)
                 }
                 //let coords = try! decoder.decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: <#T##Data#>)
                 
@@ -74,7 +80,6 @@ class PullRunsFromDisk: BaseObject  {
         }
         
         self.finishProcessing()
-        
         
     }
 }
