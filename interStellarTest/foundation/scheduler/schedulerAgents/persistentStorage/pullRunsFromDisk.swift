@@ -49,38 +49,40 @@ class PullRunsFromDisk: BaseObject  {
     
     func scanForRuns () {
         
-        //if Disk.exists("runData", in: .applicationSupport ) {
-            // ...
-            
-        //}
+        
         self.startProcessing()
         
-        guard let files = try? Disk.retrieve(path, from: .caches, as: [Data]) else  {
-            //no files found
-            self.finishProcessing()
-            return
-        }
-        
-        for i in files {
-            if let j = String(data:i, encoding:.utf8) {
-                print (j);
-                let decoder = JSONDecoder()
-                
-                if let run = try! decoder.decode(Run?.self, from: i) {
-                    
-                    //send to mapCombiner , hoodoRunStreamListener
-                    //print (run)
-                    runReceivedObservable.update(run)
-                    self._pulse(pulseBySeconds: 2)
-                }
-                //let coords = try! decoder.decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: <#T##Data#>)
-                
-               
-            }
+        //this will crash
+        queue.async (){
             
-        }
+            
+            guard let files = try? Disk.retrieve(self.path, from: .caches, as: [Data]) else  {
+                //no files found
+                self.finishProcessing()
+                return
+            }
         
-        self.finishProcessing()
+            for i in files {
+                if let j = String(data:i, encoding:.utf8) {
+                    
+                    let decoder = JSONDecoder()
+                
+                    if let run = try! decoder.decode(Run?.self, from: i) {
+                    
+                        //send to mapCombiner , hoodoRunStreamListener
+                        print (run.coordinates.count)
+                        runReceivedObservable.update(run)
+                        self._pulse(pulseBySeconds: 2)
+                    }
+                
+                }
+            
+            }
+        
+            self.finishProcessing()
+        
+        }   //and async operazione
+        
         
     }
 }

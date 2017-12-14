@@ -125,7 +125,7 @@ enum DROPcategoryTypes {
 
 struct mapSnapshot {
     
-    let o : [MKPolyline]
+    let coordinates : [[CLLocationCoordinate2D]]
     let filteringMode : mapFilteringMode //throw everything in as default
     let lat : CLLocationDegrees
     let lon : CLLocationDegrees

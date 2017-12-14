@@ -257,6 +257,8 @@ class ViewController: UIViewController {
     @IBAction func toggleRunStreamReader(_ sender: UISwitch) {
         
         let vx = sender.isOn
+        
+        //on rundataiojunction
         runStreamReaderObserver.update( vx )
         
     }

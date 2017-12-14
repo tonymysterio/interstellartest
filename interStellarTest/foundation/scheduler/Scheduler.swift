@@ -299,7 +299,7 @@ class Scheduler {
         o.messageQueue = self.messageQueue //copy reference to mqueue here, leave storage out of mqueue
         
         self.storage.addObject(label: oID, object: o) //objects[oID]=o;
-        
+        print ("scheduler added \(o.name) ")
         return true
         
     }

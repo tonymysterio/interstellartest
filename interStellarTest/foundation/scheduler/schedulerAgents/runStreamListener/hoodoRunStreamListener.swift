@@ -13,7 +13,7 @@ import UIKit
 class hoodoRunStreamListener : BaseObject  {
     
     //general PLACE to keep our runs? unwise? mapCombiner has its own copy of the same data?
-    
+    //run dataIO junction
     
     var processing = false;
     var lastProcessedBuffer = 0;
@@ -122,6 +122,8 @@ class hoodoRunStreamListener : BaseObject  {
                 
                 //nasty unfiltered run to fly to runDataIOjunction that saves it to disk
                 runStreamReaderDataArrivedObserver.update(run);
+                //also tell mapcombiner. it will filter stuff outside its area
+                //runReceivedObservable.update(run);
                 self.simplifyRun(run: run)
             }
             

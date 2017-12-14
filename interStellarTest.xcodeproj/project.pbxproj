@@ -44,6 +44,8 @@
 		266D56391FE0C8F100D5BC65 /* geos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2642529C1FDFCCB000B74509 /* geos.framework */; };
 		266D563A1FE0C8F100D5BC65 /* geos.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2642529C1FDFCCB000B74509 /* geos.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		266D563D1FE101FD00D5BC65 /* overlayWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D563C1FE101FD00D5BC65 /* overlayWorld.swift */; };
+		266D563E1FE1236F00D5BC65 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266116AA1FDF6F4300E78D50 /* Geohash.swift */; };
+		266D563F1FE1237200D5BC65 /* GeohashBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266116AB1FDF6F4400E78D50 /* GeohashBox.swift */; };
 		2687F3011FB976B50022A40C /* jsonStreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687F3001FB976B50022A40C /* jsonStreamReader.swift */; };
 		269248251FC94D2E00F3E247 /* pullRunsFromDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269248241FC94D2E00F3E247 /* pullRunsFromDisk.swift */; };
 		26AC3BDA1FB5425D00540BB9 /* runStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC3BD91FB5425D00540BB9 /* runStruct.swift */; };
@@ -53,6 +55,8 @@
 		26B597B71FBBFC6000557993 /* hoodoRunStreamListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B597B61FBBFC6000557993 /* hoodoRunStreamListener.swift */; };
 		26B597B91FBC154600557993 /* SwiftSimplify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B597B81FBC154600557993 /* SwiftSimplify.swift */; };
 		26B940021FC96EC000441A73 /* MapCombiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B940011FC96EC000441A73 /* MapCombiner.swift */; };
+		26E52EE51FE1286100CC04B0 /* mainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E52EE41FE1286000CC04B0 /* mainTabBar.swift */; };
+		26E52EE71FE26C6F00CC04B0 /* simpleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E52EE61FE26C6F00CC04B0 /* simpleMap.swift */; };
 		26F69FFF1F14AC3800DFD19B /* Worrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F69FFE1F14AC3800DFD19B /* Worrier.swift */; };
 		26F6A0021F16F40600DFD19B /* MotionLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F6A0011F16F40600DFD19B /* MotionLogger.swift */; };
 		26F6A0041F18464B00DFD19B /* LocationLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F6A0031F18464B00DFD19B /* LocationLogger.swift */; };
@@ -141,6 +145,8 @@
 		26B597B61FBBFC6000557993 /* hoodoRunStreamListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hoodoRunStreamListener.swift; sourceTree = "<group>"; };
 		26B597B81FBC154600557993 /* SwiftSimplify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSimplify.swift; sourceTree = "<group>"; };
 		26B940011FC96EC000441A73 /* MapCombiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCombiner.swift; sourceTree = "<group>"; };
+		26E52EE41FE1286000CC04B0 /* mainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainTabBar.swift; sourceTree = "<group>"; };
+		26E52EE61FE26C6F00CC04B0 /* simpleMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simpleMap.swift; sourceTree = "<group>"; };
 		26F69FFE1F14AC3800DFD19B /* Worrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worrier.swift; sourceTree = "<group>"; };
 		26F6A0011F16F40600DFD19B /* MotionLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionLogger.swift; sourceTree = "<group>"; };
 		26F6A0031F18464B00DFD19B /* LocationLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLogger.swift; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 				26444F271F09CD300035519D /* Assets.xcassets */,
 				26444F291F09CD300035519D /* LaunchScreen.storyboard */,
 				26444F2C1F09CD300035519D /* Info.plist */,
+				26E52EE41FE1286000CC04B0 /* mainTabBar.swift */,
 				26444F241F09CD300035519D /* interStellarTest.xcdatamodeld */,
 			);
 			path = interStellarTest;
@@ -372,6 +379,7 @@
 			children = (
 				26F6A0091F25E88600DFD19B /* mapViewTabViewController.swift */,
 				266D563C1FE101FD00D5BC65 /* overlayWorld.swift */,
+				26E52EE61FE26C6F00CC04B0 /* simpleMap.swift */,
 			);
 			path = mapView;
 			sourceTree = "<group>";
@@ -553,11 +561,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E52EE71FE26C6F00CC04B0 /* simpleMap.swift in Sources */,
 				26444F541F0B1D660035519D /* Scheduler.swift in Sources */,
 				26B940021FC96EC000441A73 /* MapCombiner.swift in Sources */,
 				26444F201F09CD300035519D /* ViewController.swift in Sources */,
 				2647D40B1FBAAF76007E83AF /* preferencesSignalJunction.swift in Sources */,
 				263607601FBE93BE000C423D /* HCMatrixObject.swift in Sources */,
+				266D563E1FE1236F00D5BC65 /* Geohash.swift in Sources */,
 				26F69FFF1F14AC3800DFD19B /* Worrier.swift in Sources */,
 				269248251FC94D2E00F3E247 /* pullRunsFromDisk.swift in Sources */,
 				263607651FBE9D15000C423D /* liveRunStreamListener.swift in Sources */,
@@ -571,6 +581,7 @@
 				26F6A0041F18464B00DFD19B /* LocationLogger.swift in Sources */,
 				26F6A0061F1DA29100DFD19B /* LocationTracker.swift in Sources */,
 				263607631FBE940D000C423D /* runRecorderJunction.swift in Sources */,
+				266D563F1FE1237200D5BC65 /* GeohashBox.swift in Sources */,
 				2636075C1FBE707A000C423D /* runStreamRecorder.swift in Sources */,
 				26F6A0081F1DB49800DFD19B /* MotionTracker.swift in Sources */,
 				263607671FBECC90000C423D /* Pedometer.swift in Sources */,
@@ -582,6 +593,7 @@
 				26F6A00C1F25EE7600DFD19B /* GlobalVariables.swift in Sources */,
 				26F6A0021F16F40600DFD19B /* MotionLogger.swift in Sources */,
 				2687F3011FB976B50022A40C /* jsonStreamReader.swift in Sources */,
+				26E52EE51FE1286100CC04B0 /* mainTabBar.swift in Sources */,
 				266799321FC929C10057304E /* runDataIOJunction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

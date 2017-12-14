@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yAT-wA-LtA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yAT-wA-LtA">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -185,7 +185,7 @@
         <scene sceneID="cIz-KN-lik">
             <objects>
                 <tabBarController id="yAT-wA-LtA" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="pK9-Lf-KaE">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="pK9-Lf-KaE" customClass="maitTabBar">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -193,7 +193,7 @@
                     <connections>
                         <segue destination="aMU-d3-1Vi" kind="relationship" relationship="viewControllers" id="QeY-oH-cXv"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ygj-zZ-SFl"/>
-                        <segue destination="vVL-ef-D1j" kind="relationship" relationship="viewControllers" id="vz5-Uk-98F"/>
+                        <segue destination="hfF-JS-Rqv" kind="relationship" relationship="viewControllers" id="hw7-TX-gBb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLW-HQ-Juw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,6 +240,31 @@
             <point key="canvasLocation" x="981" y="27"/>
         </scene>
         <!--Item-->
+        <scene sceneID="Ruh-v9-M4C">
+            <objects>
+                <viewController id="hfF-JS-Rqv" customClass="SimpleMap" customModule="interStellarTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lhz-kg-XTV"/>
+                        <viewControllerLayoutGuide type="bottom" id="UTe-9C-2oD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nke-hL-MAQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ezB-Kb-o8c">
+                                <rect key="frame" x="16" y="46" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="cXd-vu-az2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e7p-N6-t2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-986.25" y="842.95774647887322"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="DRB-yj-zHo">
             <objects>
                 <viewController id="vVL-ef-D1j" customClass="mapViewTabViewController" customModule="interStellarTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -279,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zI6-dB-5yZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="170.625" y="399.29577464788736"/>
+            <point key="canvasLocation" x="193" y="757"/>
         </scene>
     </scenes>
 </document>

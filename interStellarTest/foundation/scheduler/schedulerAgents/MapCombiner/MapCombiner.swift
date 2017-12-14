@@ -59,7 +59,20 @@ class MapCombiner : BaseObject  {
         
         //if disk space is low, return
         //DROPcategoryTypes.lowDiskspace
+        
+        
+        
+        //filter irrelevant runs by distance
+        
+        //pullRunsFromDisk also shouts here
         runReceivedObservable.subscribe
+            { run in
+                self.addRun( run : run )
+                
+        }
+        
+        //hoodoRunStreamListener pages us when it reads a run from stream etc
+        runStreamReaderDataArrivedObserver.subscribe
             { run in
                 self.addRun( run : run )
                 
@@ -80,12 +93,19 @@ class MapCombiner : BaseObject  {
     
     func addRun ( run : Run ) {
         
-        self.runQueue.sync { [weak self] in
+        //is this run in our visibilitee? if not, filter out
+        
+        
+        
+        self.pullQueue.sync { [weak self] in
             
-            if let ok = self?.runs.append(run : run ) {
+            if let ok = self?.runs.append( run : run ) {
                 
                 //process when time has passed
                 lastInsertTimestamp = Date().timeIntervalSince1970
+                print("mapcombiner added run ")
+                self?._pulse(pulseBySeconds: 60)
+                
             }
             
         }
@@ -98,9 +118,15 @@ class MapCombiner : BaseObject  {
         let currentRunsCount = self.runs.o.count
         print ("createSnapshot called with \(currentRunsCount)")
         
-        if self.isProcessing { return DROPcategoryTypes.busyProcessesing }
+        if self.isProcessing {
+            return DROPcategoryTypes.busyProcessesing
+            
+        }
         
-        if  currentRunsCount == 0 { return DROPcategoryTypes.serviceNotReady }
+        if  currentRunsCount == 0 {
+            return DROPcategoryTypes.serviceNotReady
+            
+        }
         //ignore further additions
         self.startProcessing()
         //data might appear after this,just copy the existing items and pass to createSnapshots
@@ -117,7 +143,7 @@ class MapCombiner : BaseObject  {
                 strongSelf.createSnapshotFromRuns(runs: currentRuns , lat: strongSelf.Lat,lon: strongSelf.Lon, getWithinArea: strongSelf.getWithinArea )
                 
             } else {
-                
+                print ("createSnapshot: no valid runs in this area out of \(strongSelf.runs.o.count) ")
                 //no data with current location. let this guy TTL unless we get some data
                 self?.finishProcessing()
                 
@@ -153,19 +179,20 @@ class MapCombiner : BaseObject  {
         
         
         let r = runs.allSorted()
-        var mapPolylineSet = [MKPolyline]()
+        var mapPolylineSet = [[CLLocationCoordinate2D]]()
         //older areas on the background
         for i in r!.o {
             
             //let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+            //make polylines 
             let coords = i.coordinates.map { CLLocationCoordinate2DMake($0.lat, $0.lon) }
-            let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
-            mapPolylineSet.append(myPolyline)
+            //let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+            mapPolylineSet.append(coords)
             
         }
         
         //do this in background queue
-        let newSnap = mapSnapshot( o : mapPolylineSet , filteringMode : self.filteringMode , lat : lat , lon: lon , getWithinArea : getWithinArea )
+        let newSnap = mapSnapshot( coordinates : mapPolylineSet , filteringMode : self.filteringMode , lat : lat , lon: lon , getWithinArea : getWithinArea )
         
         /*let o : [MKPolyline]
         let filteringMode : mapFilteringMode //throw everything in as default
@@ -174,6 +201,8 @@ class MapCombiner : BaseObject  {
         let getWithinArea : Double */
         
         mapSnapshotObserver.update(newSnap) //mapView is listening
+        
+        self.finishProcessing()
     }
     
     func createSnapshotFromRunsForPersonal ( runs : Runs ) {

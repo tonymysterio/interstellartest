@@ -23,19 +23,7 @@ class mapViewTabViewController: UIViewController {
         
         
         // Do any additional setup after loading the view.
-        if let mlt = storage.getObject(oID: "mapCombiner") as! MapCombiner? {
-            
-            //if mapCombiner is alive ask for maps
-            //mapCombiner will send a mapSnap via observable
-            mlt.changeFilteringMode (filteringMode : currentFilteringMode )
-            
-            //check if we have a snap on the disk for this purpose
-            
-            
-            //if not, process one
-            let gump = mlt.createSnapshot()
-            
-        }
+        
         
         /*var mergedQueueToken = myCurrentGpsLocation.subscribe { t in
             
@@ -112,6 +100,24 @@ class mapViewTabViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let mlt = storage.getObject(oID: "mapCombiner") as! MapCombiner? {
+            
+            //if mapCombiner is alive ask for maps
+            //mapCombiner will send a mapSnap via observable
+            mlt.changeFilteringMode (filteringMode : currentFilteringMode )
+            print ("view did appear, create snap")
+            //check if we have a snap on the disk for this purpose
+            
+            
+            //if not, process one
+            let gump = mlt.createSnapshot()
+            
+        }
+        
+    }
+    
     func mapSnapshotReceived( mapSnap : mapSnapshot ) {
         
         //MapCombiner gives us a new snap for some reason
@@ -126,16 +132,20 @@ class mapViewTabViewController: UIViewController {
         
         // track if it is what we want to see now
         let center = CLLocationCoordinate2D(latitude: mapSnap.lat, longitude: mapSnap.lon)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
         
         
-        for i in mapSnap.o {
-            self.mapView.add(i) //polyline
+        
+        self.mapView.setCenter(center, animated: true)
+        self.mapView.setRegion(region, animated: true)
+        
+        for i in mapSnap.coordinates {
+            
+            let myPolyline = MKPolyline(coordinates: i, count: i.count)
+            self.mapView.add(myPolyline) //polyline
             
         }
         
-        self.mapView.setRegion(region, animated: true)
-        self.mapView.setCenter(center, animated: true)
         
         
     }
@@ -150,8 +160,9 @@ class mapViewTabViewController: UIViewController {
     
 }
 
-extension ViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+extension mapViewTabViewController : MKMapViewDelegate {
+    
+    /*func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
         }
@@ -163,14 +174,14 @@ extension ViewController: MKMapViewDelegate {
             annotationView.canShowCallout = true
             return annotationView
         }
-    }
+    }*/
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKCircle {
             let renderer = MKCircleRenderer(overlay: overlay)
-            renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
+            renderer.fillColor = UIColor.black.withAlphaComponent(0.1)
             renderer.strokeColor = UIColor.blue
-            renderer.lineWidth = 2
+            renderer.lineWidth = 5
             return renderer
             
         } else if overlay is MKPolyline {

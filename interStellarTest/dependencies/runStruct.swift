@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 import CoreLocation
 
+
 enum mapFilteringMode {
     
     case personal   //my personals combined
@@ -112,16 +113,16 @@ struct Runs {
         var withinRange = Runs()
         
         for f in o {
+            if let loca = Geohash.decode(f.geoHash) {
+                let location1 = CLLocation(latitude: loca.latitude, longitude: loca.longitude)
             
-            let location1 = CLLocation(latitude: (f.coordinates.first?.lat)!, longitude: (f.coordinates.first?.lon)!)
-            
-            let d = location1.distance(from: location2)
-            if d == 0 { continue }
-            if d < distanceInMeters {
+                let d = location1.distance(from: location2)
+                if d == 0 { continue }
+                if d < distanceInMeters {
                 
-                withinRange.append(run: f)
+                    withinRange.append(run: f)
+                }
             }
-            
         }
         
         if withinRange.o.count == 0 { return nil }
